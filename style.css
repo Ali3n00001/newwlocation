@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, sans-serif;
+  background: #f4f4f4;
+  color: #554f4f;
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 4rem;
+}
+
+h2 {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+}
+
+h3{
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1rem 3rem;
+}
+
+img {
+  display: block;
+  max-width: 60vw;
+  max-height: 40vh;
+  object-fit: contain;
+}

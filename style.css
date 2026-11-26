@@ -37,15 +37,34 @@ body {
   cursor: pointer;
 }
 
+.bench-silhouette,
 .bench-hover {
   position: absolute;
   inset: 0;
+  clip-path: inset(44% 23% 34% 23%);
+}
+
+.bench-silhouette {
+  z-index: 0;
+  background-color: #fff;
+  -webkit-mask-image: url("animation/benches button.png");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url("animation/benches button.png");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.bench-hover {
   z-index: 1;
   background-image: url("animation/benches button.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  clip-path: inset(44% 23% 34% 23%);
   transform: none;
   transition: transform 180ms ease;
 }

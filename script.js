@@ -1,9 +1,10 @@
 const image = document.querySelector(".artwork");
-const clock = document.querySelector(".clock");
 const bottomArtwork = document.querySelector(".bottom-artwork");
 const compassArtwork = document.querySelector(".compass-artwork");
 const compassTrigger = document.querySelector(".clock-trigger");
 const glassesTrigger = document.querySelector(".glasses-trigger");
+const sceneTrigger = document.querySelector(".scene-trigger");
+const pathTrigger = document.querySelector(".path-trigger");
 
 image?.classList.remove("is-entering");
 compassArtwork?.classList.remove("is-visible");
@@ -14,21 +15,6 @@ const replayAnimation = (target) => {
   void target.offsetWidth;
   target.classList.add("is-entering");
 };
-
-if (clock) {
-  const updateClock = () => {
-    const now = new Date();
-    clock.textContent = new Intl.DateTimeFormat(undefined, {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    }).format(now);
-  };
-
-  updateClock();
-  setInterval(updateClock, 1000);
-}
 
 if (image && glassesTrigger) {
   glassesTrigger.addEventListener("click", () => replayAnimation(image));
@@ -50,5 +36,28 @@ if (bottomArtwork) {
   window.addEventListener("pointermove", updateBottomArtwork);
   window.addEventListener("pointerleave", () => {
     bottomArtwork.classList.remove("is-visible");
+  });
+}
+
+const transitionScene = (updateScene) => {
+  if (document.body.classList.contains("scene-changing")) return;
+
+  document.body.classList.add("scene-changing");
+  const fadeDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 700;
+  window.setTimeout(() => {
+    updateScene();
+    document.body.classList.remove("scene-changing");
+  }, fadeDuration);
+};
+
+if (sceneTrigger) {
+  sceneTrigger.addEventListener("click", () => {
+    transitionScene(() => document.body.classList.add("scene-rest"));
+  });
+}
+
+if (pathTrigger) {
+  pathTrigger.addEventListener("click", () => {
+    transitionScene(() => document.body.classList.remove("scene-rest"));
   });
 }

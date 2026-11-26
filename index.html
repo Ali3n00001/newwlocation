@@ -8,12 +8,10 @@
 </head>
 <body>
 
-  <div class="clock-widget">
-    <img class="clock-face" src="animation/37574 copy.png" alt="">
-    <time class="clock" aria-live="off"></time>
-  </div>
-  <h1>Ham Common, present day, 2026.</h1>
-
+  <button class="scene-trigger" type="button" aria-label="Enter the resting garden scene">
+    <span class="bench-hover" aria-hidden="true"></span>
+  </button>
+  <button class="path-trigger" type="button" aria-label="Return to the Garden Default scene"></button>
   <div class="left-controls">
     <button class="artwork-trigger clock-trigger" type="button" aria-label="Toggle compass animation" aria-pressed="false">
       <img src="animation/37578 copy.png" alt="">
@@ -21,6 +19,7 @@
     <button class="artwork-trigger glasses-trigger" type="button" aria-label="Play the hand animation">
       <img src="animation/37578 copy1.png" alt="">
     </button>
+    <img class="inventory-image" src="animation/inventory (2).jpg" alt="Inventory">
   </div>
 
   <main>
@@ -28,6 +27,7 @@
   </main>
   <img class="bottom-artwork" src="animation/37570 copy 2.png" alt="Two hands reaching toward each other">
   <img class="compass-artwork" src="animation/37577 copy.png" alt="" aria-hidden="true">
+  <div class="scene-transition" aria-hidden="true"></div>
 
 
   <script src="script.js"></script>
